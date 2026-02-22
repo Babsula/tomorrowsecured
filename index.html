@@ -4,59 +4,370 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TomorrowSecured</title>
-  <meta name="description" content="TomorrowSecured — education and intro to cybersecurity." />
+  <meta name="description" content="TomorrowSecured — practical cybersecurity education, made simple." />
+  <meta name="theme-color" content="#0b0f14" />
+
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:0;line-height:1.6;background:#0b0f14;color:#e8eef7}
-    .wrap{max-width:900px;margin:0 auto;padding:48px 20px}
-    header{padding:28px 0 10px}
-    h1{font-size:42px;margin:0 0 10px}
-    p{opacity:.92}
-    .card{background:#121a24;border:1px solid #1f2a3a;border-radius:14px;padding:18px 18px;margin:14px 0}
-    a{color:#8bd5ff;text-decoration:none}
+    :root{
+      --bg:#0b0f14;
+      --panel:#101826;
+      --panel2:#0f1623;
+      --border:rgba(255,255,255,.10);
+      --text:#eaf2ff;
+      --muted:rgba(234,242,255,.78);
+      --muted2:rgba(234,242,255,.62);
+      --accent:#8bd5ff;
+      --accent2:#b6f3ff;
+      --shadow: 0 20px 50px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 10%, rgba(139,213,255,.18), transparent 60%),
+        radial-gradient(700px 500px at 80% 20%, rgba(182,243,255,.12), transparent 55%),
+        radial-gradient(900px 600px at 50% 120%, rgba(139,213,255,.10), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    footer{opacity:.7;margin-top:40px;font-size:14px}
-    .pill{display:inline-block;background:#182233;border:1px solid #26344a;border-radius:999px;padding:6px 12px;margin:6px 8px 0 0;font-size:14px}
+
+    .wrap{max-width:1040px; margin:0 auto; padding:42px 18px 60px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 0 26px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:750; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(139,213,255,.95), rgba(182,243,255,.65));
+      box-shadow: 0 10px 30px rgba(139,213,255,.18);
+      position:relative;
+      border:1px solid rgba(255,255,255,.16);
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:9px;
+      border-radius:8px;
+      border:1px solid rgba(10,15,20,.35);
+      background: rgba(10,15,20,.18);
+    }
+    .nav{
+      display:flex; gap:16px; align-items:center;
+      font-size:14px; color:var(--muted2);
+    }
+    .nav a{color:var(--muted2)}
+    .nav a:hover{color:var(--text); text-decoration:none}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(16,24,38,.95), rgba(10,15,20,.55));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .heroMain{
+      padding:26px 22px;
+      position:relative;
+    }
+    .heroMain:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(420px 260px at 20% 10%, rgba(139,213,255,.18), transparent 60%),
+        radial-gradient(420px 260px at 80% 0%, rgba(182,243,255,.12), transparent 62%);
+      pointer-events:none;
+    }
+    .heroMain > *{position:relative}
+
+    h1{
+      margin:0;
+      font-size:48px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    .tagline{
+      margin:12px 0 16px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:64ch;
+    }
+
+    .pills{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 18px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(24,34,51,.55);
+      font-size:13px;
+      color:var(--muted);
+      backdrop-filter: blur(6px);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: linear-gradient(180deg, rgba(139,213,255,.95), rgba(182,243,255,.65));
+      box-shadow: 0 0 0 3px rgba(139,213,255,.12);
+    }
+
+    .ctaRow{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(18,26,36,.75);
+      color:var(--text);
+      font-weight:650;
+      font-size:14px;
+      text-decoration:none;
+    }
+    .btn:hover{filter:brightness(1.06); text-decoration:none}
+    .btnPrimary{
+      border-color: rgba(139,213,255,.35);
+      background: linear-gradient(135deg, rgba(139,213,255,.22), rgba(182,243,255,.10));
+      box-shadow: 0 10px 24px rgba(139,213,255,.12);
+    }
+    .btnSmall{font-weight:600}
+
+    .heroSide{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .mini{
+      padding:14px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,22,35,.62);
+    }
+    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:.2px}
+    .mini p{margin:0; font-size:13px; color:var(--muted2)}
+
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+    }
+    .tile{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(16,24,38,.55);
+    }
+    .tile h2{margin:0 0 8px; font-size:16px}
+    .tile p{margin:0; color:var(--muted); font-size:14px}
+
+    .section{
+      margin-top:16px;
+      padding:20px 22px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section p{margin:0; color:var(--muted)}
+    ul{margin:10px 0 0 18px; color:var(--muted)}
+    li{margin:6px 0}
+    strong{color:var(--text)}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
+
+    .contactRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+    .contactChip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(15,22,35,.55);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .icon{
+      width:28px; height:28px; border-radius:12px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(18,26,36,.75);
+      color:var(--text);
+      font-size:14px;
+    }
+
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.10);
+      color: rgba(234,242,255,.55);
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .footLinks{display:flex; gap:14px; flex-wrap:wrap}
+    .footLinks a{color: rgba(234,242,255,.55)}
+    .footLinks a:hover{color: var(--text); text-decoration:none}
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <header>
-      <h1>TomorrowSecured</h1>
-      <p>Practical cybersecurity education — made simple.</p>
-      <span class="pill">Awareness</span>
-      <span class="pill">Basics</span>
-      <span class="pill">Hands-on learning</span>
-    </header>
-
-    <div class="card">
-      <h2>About</h2>
-      <p>
-        Hi — I’m <strong>[Your Name]</strong>. I work with cybersecurity and I’m building TomorrowSecured to help people learn
-        security fundamentals in a clear, practical way.
-      </p>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>TomorrowSecured</div>
+      </div>
+      <div class="nav">
+        <a href="#about">About</a>
+        <a href="#learn">Learn</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Cybersecurity in 60 seconds</h2>
-      <ul>
-        <li><strong>Protect identities:</strong> strong passwords + MFA everywhere.</li>
-        <li><strong>Update systems:</strong> patching stops most attacks.</li>
-        <li><strong>Watch for phishing:</strong> verify links, senders, and urgency.</li>
-        <li><strong>Backups matter:</strong> keep at least one offline/immutable copy.</li>
-      </ul>
+    <div class="hero">
+      <div class="card heroMain">
+        <h1>Practical cybersecurity education — made simple.</h1>
+        <p class="tagline">
+          TomorrowSecured helps people build real-world security fundamentals: identity protection, phishing defense,
+          safe habits, and the mindset to reduce risk.
+        </p>
+
+        <div class="pills">
+          <span class="pill"><span class="dot"></span> Awareness</span>
+          <span class="pill"><span class="dot"></span> Fundamentals</span>
+          <span class="pill"><span class="dot"></span> Hands-on learning</span>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#learn">Start here</a>
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn btnSmall" href="https://tomorrowsecured.org" title="Refresh canonical">tomorrowsecured.org</a>
+        </div>
+      </div>
+
+      <div class="card heroSide">
+        <div class="mini">
+          <h3>Goal</h3>
+          <p>Make cybersecurity approachable, actionable, and useful in everyday life and work.</p>
+        </div>
+        <div class="mini">
+          <h3>Format</h3>
+          <p>Short guides, checklists, and beginner-friendly explanations (no fluff).</p>
+        </div>
+        <div class="mini">
+          <h3>Focus areas</h3>
+          <p>MFA, phishing, safe updates, backups, and basic incident response habits.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
+    <div class="grid" id="learn">
+      <div class="tile">
+        <h2>Identity & Access</h2>
+        <p>Passwords, MFA, account recovery, and reducing account takeovers.</p>
+      </div>
+      <div class="tile">
+        <h2>Phishing Defense</h2>
+        <p>Spot manipulation, verify links/senders, and avoid credential traps.</p>
+      </div>
+      <div class="tile">
+        <h2>Resilience</h2>
+        <p>Updates, backups, and simple routines that reduce real risk fast.</p>
+      </div>
+    </div>
+
+    <div class="split">
+      <div class="card section" id="about">
+        <h2>About</h2>
+        <p>
+          Hi — I’m <strong>Amar Licina</strong>. I work with cybersecurity and I’m building TomorrowSecured to help people learn
+          security fundamentals in a clear, practical way.
+        </p>
+      </div>
+
+      <div class="card section">
+        <h2>Cybersecurity in 60 seconds</h2>
+        <ul>
+          <li><strong>Protect identities:</strong> strong passwords + MFA everywhere.</li>
+          <li><strong>Update systems:</strong> patching stops most common attacks.</li>
+          <li><strong>Watch for phishing:</strong> verify links, senders, and urgency.</li>
+          <li><strong>Backups matter:</strong> keep at least one offline/immutable copy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card section" id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:Amardommer@hotmail.com">Amardommer@hotmail.com</a></p>
-      <p>LinkedIn: <a href="http://www.linkedin.com/in/amar-licina-889aab207">Amar Licina</a></p>
+      <p>Want to collaborate, suggest topics, or ask a question?</p>
+
+      <div class="contactRow">
+        <span class="contactChip">
+          <span class="icon">✉</span>
+          <a href="mailto:Amardommer@hotmail.com">Amardommer@hotmail.com</a>
+        </span>
+
+        <span class="contactChip">
+          <span class="icon">in</span>
+          <a href="https://www.linkedin.com/in/amar-licina-889aab207" target="_blank" rel="noreferrer">LinkedIn</a>
+        </span>
+      </div>
     </div>
 
     <footer>
-      © <span id="y"></span> TomorrowSecured • tomorrowsecured.org
+      <div>© <span id="y"></span> TomorrowSecured • tomorrowsecured.org</div>
+      <div class="footLinks">
+        <a href="#about">About</a>
+        <a href="#learn">Learn</a>
+        <a href="#contact">Contact</a>
+      </div>
     </footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
