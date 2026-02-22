@@ -4,369 +4,634 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TomorrowSecured</title>
-  <meta name="description" content="TomorrowSecured — practical cybersecurity education, made simple." />
-  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="TomorrowSecured — cybersecurity education made practical." />
+  <meta name="theme-color" content="#0B1220" />
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --panel:#101826;
-      --panel2:#0f1623;
-      --border:rgba(255,255,255,.10);
-      --text:#eaf2ff;
-      --muted:rgba(234,242,255,.78);
-      --muted2:rgba(234,242,255,.62);
-      --accent:#8bd5ff;
-      --accent2:#b6f3ff;
-      --shadow: 0 20px 50px rgba(0,0,0,.45);
+      --bg:#0b1220;
+      --surface:#0f1a2f;
+      --card:#ffffff;
+      --card2:#f6f9ff;
+      --text:#0b1220;
+      --muted:#4b5563;
+      --muted2:#6b7280;
+      --line:rgba(2,8,23,.10);
+      --blue:#2563eb;
+      --blue2:#60a5fa;
+      --shadow: 0 20px 50px rgba(2, 8, 23, .12);
       --radius:18px;
+      --radius2:24px;
+      --max:1140px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
-      background:
-        radial-gradient(900px 600px at 20% 10%, rgba(139,213,255,.18), transparent 60%),
-        radial-gradient(700px 500px at 80% 20%, rgba(182,243,255,.12), transparent 55%),
-        radial-gradient(900px 600px at 50% 120%, rgba(139,213,255,.10), transparent 60%),
-        var(--bg);
+      background: #fff;
       line-height:1.55;
     }
-
-    a{color:var(--accent); text-decoration:none}
+    a{color:inherit; text-decoration:none}
     a:hover{text-decoration:underline}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-    .wrap{max-width:1040px; margin:0 auto; padding:42px 18px 60px}
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:10px 0 26px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:750; letter-spacing:.2px;
-    }
-    .logo{
-      width:34px; height:34px; border-radius:12px;
-      background: linear-gradient(135deg, rgba(139,213,255,.95), rgba(182,243,255,.65));
-      box-shadow: 0 10px 30px rgba(139,213,255,.18);
-      position:relative;
-      border:1px solid rgba(255,255,255,.16);
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:9px;
-      border-radius:8px;
-      border:1px solid rgba(10,15,20,.35);
-      background: rgba(10,15,20,.18);
-    }
+    /* Top nav */
     .nav{
-      display:flex; gap:16px; align-items:center;
-      font-size:14px; color:var(--muted2);
+      position:sticky; top:0; z-index:20;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    .nav a{color:var(--muted2)}
-    .nav a:hover{color:var(--text); text-decoration:none}
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:20px;
-      align-items:stretch;
-    }
-
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(16,24,38,.95), rgba(10,15,20,.55));
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-
-    .heroMain{
-      padding:26px 22px;
-      position:relative;
-    }
-    .heroMain:before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background:
-        radial-gradient(420px 260px at 20% 10%, rgba(139,213,255,.18), transparent 60%),
-        radial-gradient(420px 260px at 80% 0%, rgba(182,243,255,.12), transparent 62%);
-      pointer-events:none;
-    }
-    .heroMain > *{position:relative}
-
-    h1{
-      margin:0;
-      font-size:48px;
-      line-height:1.08;
-      letter-spacing:-.6px;
-    }
-    .tagline{
-      margin:12px 0 16px;
-      color:var(--muted);
-      font-size:16px;
-      max-width:64ch;
-    }
-
-    .pills{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 18px}
-    .pill{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:7px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(24,34,51,.55);
-      font-size:13px;
-      color:var(--muted);
-      backdrop-filter: blur(6px);
-    }
-    .dot{
-      width:8px; height:8px; border-radius:99px;
-      background: linear-gradient(180deg, rgba(139,213,255,.95), rgba(182,243,255,.65));
-      box-shadow: 0 0 0 3px rgba(139,213,255,.12);
-    }
-
-    .ctaRow{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:6px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(18,26,36,.75);
-      color:var(--text);
-      font-weight:650;
-      font-size:14px;
-      text-decoration:none;
-    }
-    .btn:hover{filter:brightness(1.06); text-decoration:none}
-    .btnPrimary{
-      border-color: rgba(139,213,255,.35);
-      background: linear-gradient(135deg, rgba(139,213,255,.22), rgba(182,243,255,.10));
-      box-shadow: 0 10px 24px rgba(139,213,255,.12);
-    }
-    .btnSmall{font-weight:600}
-
-    .heroSide{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .mini{
-      padding:14px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(15,22,35,.62);
-    }
-    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:.2px}
-    .mini p{margin:0; font-size:13px; color:var(--muted2)}
-
-    .grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
+    .navInner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
       gap:14px;
     }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      display:grid; place-items:center;
+      color:#fff; font-size:16px;
+      box-shadow: 0 12px 26px rgba(37,99,235,.22);
+    }
+    .brand span b{color:var(--blue)}
+    .links{display:flex; gap:18px; align-items:center; color:var(--muted); font-weight:600; font-size:14px}
+    .links a{padding:8px 10px; border-radius:12px}
+    .links a:hover{background: rgba(37,99,235,.08); text-decoration:none; color:#111827}
+    .right{display:flex; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(2,8,23,.12);
+      background:#fff;
+      font-weight:700; font-size:14px;
+    }
+    .btn:hover{text-decoration:none; filter:brightness(0.99)}
+    .btnPrimary{
+      background: var(--blue);
+      color:#fff;
+      border-color: rgba(37,99,235,.45);
+      box-shadow: 0 10px 24px rgba(37,99,235,.18);
+    }
+    .btnPrimary:hover{filter:brightness(1.03)}
+    .btnGhost{
+      border-color: transparent;
+      background: transparent;
+      color: var(--muted);
+      font-weight:700;
+    }
+    .btnGhost:hover{background: rgba(2,8,23,.05); text-decoration:none; color:#111827}
+
+    /* Hero */
+    .heroWrap{
+      background: #fff;
+      padding: 20px 0 28px;
+    }
+    .hero{
+      position:relative;
+      border-radius: var(--radius2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      min-height: 460px;
+      border:1px solid rgba(2,8,23,.08);
+      background: #0b1220;
+    }
+    .heroBg{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.02);
+    }
+    .heroOverlay{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,18,32,.92) 0%, rgba(11,18,32,.80) 46%, rgba(11,18,32,.35) 100%),
+        radial-gradient(600px 300px at 10% 20%, rgba(96,165,250,.22), transparent 55%),
+        radial-gradient(500px 260px at 35% 15%, rgba(37,99,235,.16), transparent 60%);
+    }
+    .heroInner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      padding: 46px 42px;
+      align-items: end;
+    }
     @media (max-width: 900px){
-      .grid{grid-template-columns:1fr}
+      .heroInner{grid-template-columns:1fr; padding:32px 18px}
+      .links{display:none}
     }
-    .tile{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(16,24,38,.55);
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      color:#e5efff;
+      background: rgba(96,165,250,.14);
+      border:1px solid rgba(96,165,250,.22);
+      font-weight:700;
+      font-size:13px;
+      width: fit-content;
     }
-    .tile h2{margin:0 0 8px; font-size:16px}
-    .tile p{margin:0; color:var(--muted); font-size:14px}
-
-    .section{
-      margin-top:16px;
-      padding:20px 22px;
+    .badgeDot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(180deg, #60a5fa, #2563eb);
+      box-shadow: 0 0 0 4px rgba(96,165,250,.18);
     }
-    .section h2{
-      margin:0 0 10px;
-      font-size:18px;
+    .heroTitle{
+      margin:14px 0 10px;
+      color:#fff;
+      font-size: 64px;
+      line-height: 1.02;
+      letter-spacing: -1.2px;
+    }
+    @media (max-width: 600px){
+      .heroTitle{font-size:44px}
+    }
+    .heroTitle .accent{color:#7dd3fc}
+    .heroSub{
+      margin:0;
+      max-width: 62ch;
+      color: rgba(255,255,255,.80);
+      font-size: 16px;
+    }
+    .heroCTAs{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btnLight{
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.18);
+      color:#fff;
+    }
+    .btnLight:hover{filter:brightness(1.06)}
+    .scrollHint{
+      position:absolute; left:0; right:0; bottom:14px;
+      display:flex; justify-content:center;
+      color: rgba(255,255,255,.62);
+      font-size:12px;
       letter-spacing:.2px;
+      gap:10px;
+      align-items:center;
     }
-    .section p{margin:0; color:var(--muted)}
-    ul{margin:10px 0 0 18px; color:var(--muted)}
-    li{margin:6px 0}
-    strong{color:var(--text)}
+    .mouse{
+      width:20px; height:30px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.35);
+      position:relative;
+    }
+    .mouse:after{
+      content:"";
+      width:4px; height:6px; border-radius:99px;
+      background: rgba(255,255,255,.6);
+      position:absolute; left:50%; top:7px; transform:translateX(-50%);
+      animation: wheel 1.3s infinite ease-in-out;
+    }
+    @keyframes wheel{
+      0%{opacity:.35; transform:translate(-50%, 0)}
+      50%{opacity:1; transform:translate(-50%, 6px)}
+      100%{opacity:.35; transform:translate(-50%, 0)}
+    }
 
+    /* Sections */
+    section{padding: 44px 0}
+    .sectionTitle{
+      text-align:center;
+      font-size:40px;
+      margin:0;
+      letter-spacing:-.6px;
+    }
+    .sectionSub{
+      text-align:center;
+      margin:10px auto 0;
+      color: var(--muted);
+      max-width: 70ch;
+      font-size: 16px;
+    }
+
+    /* Feature cards row */
+    .features{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1000px){
+      .features{grid-template-columns: repeat(2, 1fr)}
+    }
+    @media (max-width: 560px){
+      .features{grid-template-columns:1fr}
+    }
+    .fCard{
+      background: #fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 30px rgba(2,8,23,.06);
+    }
+    .iconBox{
+      width:54px; height:54px; border-radius:16px;
+      background: rgba(37,99,235,.08);
+      border: 1px solid rgba(37,99,235,.12);
+      display:grid; place-items:center;
+      margin-bottom: 12px;
+    }
+    .fCard h3{margin:0 0 6px; font-size:18px}
+    .fCard p{margin:0; color: var(--muted); font-size:14px}
+    .svg{width:26px; height:26px}
+
+    /* Meet Amar split */
     .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:14px;
+      gap: 18px;
+      margin-top: 28px;
     }
-    @media (max-width: 900px){ .split{grid-template-columns:1fr} }
-
-    .contactRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:10px;
+    @media (max-width: 900px){
+      .split{grid-template-columns:1fr}
     }
-    .contactChip{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(15,22,35,.55);
-      color:var(--muted);
-      font-size:14px;
+    .panel{
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background: #fff;
     }
-    .icon{
-      width:28px; height:28px; border-radius:12px;
+    .panelLeft{
+      padding: 26px 26px 24px;
+    }
+    .kicker{
+      display:flex; align-items:center; gap:10px;
+      color: var(--blue);
+      font-weight:800;
+      letter-spacing: .14em;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .kicker .shield{
+      width:22px; height:22px; border-radius:10px;
+      background: rgba(37,99,235,.10);
+      border:1px solid rgba(37,99,235,.18);
       display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(18,26,36,.75);
-      color:var(--text);
-      font-size:14px;
     }
+    .panelLeft h3{
+      margin:0 0 10px;
+      font-size: 42px;
+      letter-spacing: -.6px;
+    }
+    .panelLeft p{margin:0; color: var(--muted); font-size:15px}
+    .panelLeft p strong{color:#111827}
+    .bullets{margin:16px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .check{
+      width:20px; height:20px; border-radius:999px;
+      background: rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.18);
+      display:grid; place-items:center;
+      flex: 0 0 20px;
+      margin-top:2px;
+    }
+    .rightVisual{
+      min-height: 360px;
+      position:relative;
+      background: #0b1220;
+    }
+    .rightVisual .bg{
+      position:absolute; inset:0;
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.03);
+    }
+    .rightVisual .overlay{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(11,18,32,.15), rgba(11,18,32,.75)),
+        radial-gradient(500px 260px at 50% 55%, rgba(96,165,250,.22), transparent 60%);
+    }
+    .profile{
+      position:absolute;
+      left:50%; top:50%;
+      transform: translate(-50%, -50%);
+      display:grid; place-items:center;
+      text-align:center;
+      color:#fff;
+      width:min(82%, 380px);
+    }
+    .avatar{
+      width:140px; height:140px; border-radius:999px;
+      display:grid; place-items:center;
+      font-weight:900;
+      font-size: 54px;
+      background: rgba(15,23,42,.55);
+      border: 3px solid rgba(96,165,250,.55);
+      box-shadow: 0 30px 60px rgba(0,0,0,.35);
+      margin-bottom: 10px;
+    }
+    .profile .name{font-size:22px; font-weight:900; margin:6px 0 2px}
+    .profile .role{font-size:14px; color: rgba(255,255,255,.75); margin:0}
 
-    footer{
-      margin-top:28px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.10);
-      color: rgba(234,242,255,.55);
-      font-size:13px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    /* Curriculum */
+    .currHead{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:14px;
+      margin-top: 30px;
       flex-wrap:wrap;
-      gap:10px;
     }
-    .footLinks{display:flex; gap:14px; flex-wrap:wrap}
-    .footLinks a{color: rgba(234,242,255,.55)}
-    .footLinks a:hover{color: var(--text); text-decoration:none}
+    .currHead h2{
+      margin:0;
+      font-size: 44px;
+      letter-spacing:-.7px;
+    }
+    .currHead p{margin:6px 0 0; color:var(--muted); max-width: 70ch}
+    .currCards{
+      margin-top: 20px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1000px){
+      .currCards{grid-template-columns:1fr}
+    }
+    .cCard{
+      border-radius: var(--radius2);
+      border:1px solid rgba(2,8,23,.10);
+      padding: 18px;
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(2,8,23,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .cCard:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(600px 250px at 18% 0%, rgba(37,99,235,.10), transparent 55%);
+      pointer-events:none;
+    }
+    .cCard > *{position:relative}
+    .cTag{
+      width:44px; height:44px; border-radius:16px;
+      display:grid; place-items:center;
+      border:1px solid rgba(37,99,235,.16);
+      background: rgba(37,99,235,.08);
+      margin-bottom: 12px;
+    }
+    .cCard h3{margin:0 0 6px; font-size:18px}
+    .cCard p{margin:0; color:var(--muted); font-size:14px}
+    .cLink{
+      display:inline-flex; gap:8px; align-items:center;
+      margin-top: 12px;
+      color: var(--blue);
+      font-weight:800;
+      font-size: 14px;
+    }
+    .arrow{font-weight:900}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--line);
+      padding: 22px 0;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .foot a{color: var(--muted2)}
+    .foot a:hover{color:#111827; text-decoration:none}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="topbar">
+  <!-- Change these to your own images (or leave as-is) -->
+  <script>
+    // You can swap these later:
+    window.HERO_BG   = "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1800&q=70";
+    window.PROFILE_BG= "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=70";
+  </script>
+
+  <header class="nav">
+    <div class="container navInner">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>TomorrowSecured</div>
+        <div class="logo" aria-hidden="true">🛡️</div>
+        <span>Tomorrow<b>Secured</b></span>
       </div>
-      <div class="nav">
-        <a href="#about">About</a>
-        <a href="#learn">Learn</a>
-        <a href="#contact">Contact</a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#cert">Certification</a>
+      </nav>
+
+      <div class="right">
+        <a class="btn btnGhost" href="#contact">Login</a>
+        <a class="btn btnPrimary" href="#contact">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <div class="heroWrap">
+      <div class="container">
+        <section class="hero" aria-label="Hero">
+          <div class="heroBg" id="heroBg"></div>
+          <div class="heroOverlay"></div>
+
+          <div class="heroInner">
+            <div>
+              <div class="badge"><span class="badgeDot"></span> Next cohort starting soon</div>
+              <h1 class="heroTitle">Tomorrow <span class="accent">Secured</span></h1>
+              <p class="heroSub">
+                Forge your path in cybersecurity with clear, practical training.
+                From fundamentals to real-world defense habits — built for beginners and ambitious learners.
+              </p>
+
+              <div class="heroCTAs">
+                <a class="btn btnPrimary" href="#courses">Start Learning <span class="arrow">→</span></a>
+                <a class="btn btnLight" href="#cert">Get Certified</a>
+              </div>
+            </div>
+
+            <div style="align-self:start; color:rgba(255,255,255,.75); font-size:14px;">
+              <div style="border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.08); border-radius:16px; padding:14px;">
+                <div style="font-weight:900; color:#fff; margin-bottom:6px;">What you’ll get</div>
+                <div style="display:grid; gap:8px;">
+                  <div>• Short lessons + checklists</div>
+                  <div>• Hands-on labs (coming)</div>
+                  <div>• Clear learning path</div>
+                  <div>• Community cohorts (coming)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="scrollHint">
+            <span>Scroll to explore</span>
+            <span class="mouse" aria-hidden="true"></span>
+          </div>
+        </section>
       </div>
     </div>
 
-    <div class="hero">
-      <div class="card heroMain">
-        <h1>Practical cybersecurity education — made simple.</h1>
-        <p class="tagline">
-          TomorrowSecured helps people build real-world security fundamentals: identity protection, phishing defense,
-          safe habits, and the mindset to reduce risk.
+    <section aria-label="Why choose" id="courses">
+      <div class="container">
+        <h2 class="sectionTitle">Why Choose Tomorrow Secured?</h2>
+        <p class="sectionSub">
+          More than tutorials — a structured learning path designed to build real confidence and practical skill.
         </p>
 
-        <div class="pills">
-          <span class="pill"><span class="dot"></span> Awareness</span>
-          <span class="pill"><span class="dot"></span> Fundamentals</span>
-          <span class="pill"><span class="dot"></span> Hands-on learning</span>
+        <div class="features">
+          <div class="fCard">
+            <div class="iconBox" aria-hidden="true">
+              <svg class="svg" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19a2 2 0 0 0 2 2h12"></path><path d="M6 17V5a2 2 0 0 1 2-2h10v14"></path>
+                <path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h6"></path>
+              </svg>
+            </div>
+            <h3>Comprehensive Curriculum</h3>
+            <p>From fundamentals to modern security practice — structured, not random.</p>
+          </div>
+
+          <div class="fCard">
+            <div class="iconBox" aria-hidden="true">
+              <svg class="svg" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 17l6-6 4 4 6-6"></path><path d="M20 7v6h-6"></path>
+              </svg>
+            </div>
+            <h3>Hands-on Labs</h3>
+            <p>Practice safely in guided environments designed to mimic real scenarios.</p>
+          </div>
+
+          <div class="fCard">
+            <div class="iconBox" aria-hidden="true">
+              <svg class="svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"></path>
+              </svg>
+            </div>
+            <h3>Professional Certification</h3>
+            <p>Validate your knowledge with structured milestones and final assessment (coming).</p>
+          </div>
+
+          <div class="fCard">
+            <div class="iconBox" aria-hidden="true">
+              <svg class="svg" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Expert Instruction</h3>
+            <p>Clear guidance, real-world focus, and a practical security mindset.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Instructor" id="cert">
+      <div class="container">
+        <div class="split">
+          <div class="panel panelLeft">
+            <div class="kicker">
+              <span class="shield" aria-hidden="true">🛡️</span>
+              Instructor Profile
+            </div>
+            <h3>Meet Amar</h3>
+            <p>
+              I built <strong>TomorrowSecured</strong> to bridge the gap between theory and real-world application.
+              The goal is simple: <strong>security is a mindset</strong> — built through practice, clarity, and consistent habits.
+            </p>
+
+            <ul class="bullets">
+              <li><span class="check" aria-hidden="true">✓</span> Practical, beginner-friendly explanations</li>
+              <li><span class="check" aria-hidden="true">✓</span> Clear learning paths with milestones</li>
+              <li><span class="check" aria-hidden="true">✓</span> Defensive fundamentals that actually reduce risk</li>
+              <li><span class="check" aria-hidden="true">✓</span> Hands-on labs roadmap (coming soon)</li>
+            </ul>
+          </div>
+
+          <div class="panel rightVisual">
+            <div class="bg" id="profileBg"></div>
+            <div class="overlay"></div>
+            <div class="profile">
+              <div class="avatar">A</div>
+              <div class="name">Amar</div>
+              <p class="role">Lead Instructor & Founder</p>
+            </div>
+          </div>
         </div>
 
-        <div class="ctaRow">
-          <a class="btn btnPrimary" href="#learn">Start here</a>
-          <a class="btn" href="#contact">Get in touch</a>
-          <a class="btn btnSmall" href="https://tomorrowsecured.org" title="Refresh canonical">tomorrowsecured.org</a>
+        <div class="currHead">
+          <div>
+            <h2>Curriculum Preview</h2>
+            <p>A structured path from beginner to professional — focused on fundamentals, networks, and practical security methods.</p>
+          </div>
+          <a class="btn btnPrimary" href="#contact">View Full Syllabus <span class="arrow">→</span></a>
+        </div>
+
+        <div class="currCards">
+          <div class="cCard">
+            <div class="cTag" aria-hidden="true">🌐</div>
+            <h3>Chapter 1: Fundamentals</h3>
+            <p>Security basics, CIA triad, threat thinking, and common attack patterns.</p>
+            <a class="cLink" href="#contact">Explore Module <span class="arrow">→</span></a>
+          </div>
+
+          <div class="cCard" style="background:linear-gradient(180deg, #ffffff, #f7f1ff);">
+            <div class="cTag" aria-hidden="true" style="border-color: rgba(124,58,237,.18); background: rgba(124,58,237,.08);">🔒</div>
+            <h3>Chapter 2: Network Security</h3>
+            <p>Firewalls, IDS/IPS, segmentation, encryption, and secure network design.</p>
+            <a class="cLink" href="#contact" style="color:#7c3aed;">Explore Module <span class="arrow">→</span></a>
+          </div>
+
+          <div class="cCard" style="background:linear-gradient(180deg, #ffffff, #fff4f0);">
+            <div class="cTag" aria-hidden="true" style="border-color: rgba(239,68,68,.18); background: rgba(239,68,68,.08);">🛡️</div>
+            <h3>Chapter 3: Ethical Hacking</h3>
+            <p>Vulnerability assessment, basic testing workflow, and safe offensive concepts.</p>
+            <a class="cLink" href="#contact" style="color:#ef4444;">Explore Module <span class="arrow">→</span></a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="card heroSide">
-        <div class="mini">
-          <h3>Goal</h3>
-          <p>Make cybersecurity approachable, actionable, and useful in everyday life and work.</p>
+    <section id="contact" aria-label="Contact" style="padding-top:10px;">
+      <div class="container">
+        <div class="panel" style="padding:22px 22px;">
+          <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+            <div>
+              <div style="font-weight:900; font-size:22px;">Contact</div>
+              <div style="color:var(--muted); margin-top:6px;">Want to collaborate or suggest topics? Reach out.</div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn" href="mailto:Amardommer@hotmail.com">Email</a>
+              <a class="btn btnPrimary" href="https://www.linkedin.com/in/amar-licina-889aab207" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
         </div>
-        <div class="mini">
-          <h3>Format</h3>
-          <p>Short guides, checklists, and beginner-friendly explanations (no fluff).</p>
-        </div>
-        <div class="mini">
-          <h3>Focus areas</h3>
-          <p>MFA, phishing, safe updates, backups, and basic incident response habits.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="grid" id="learn">
-      <div class="tile">
-        <h2>Identity & Access</h2>
-        <p>Passwords, MFA, account recovery, and reducing account takeovers.</p>
+        <footer>
+          <div class="container foot" style="padding:0;">
+            <div>© <span id="y"></span> TomorrowSecured • tomorrowsecured.org</div>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+              <a href="#home">Home</a>
+              <a href="#courses">Courses</a>
+              <a href="#cert">Certification</a>
+            </div>
+          </div>
+        </footer>
       </div>
-      <div class="tile">
-        <h2>Phishing Defense</h2>
-        <p>Spot manipulation, verify links/senders, and avoid credential traps.</p>
-      </div>
-      <div class="tile">
-        <h2>Resilience</h2>
-        <p>Updates, backups, and simple routines that reduce real risk fast.</p>
-      </div>
-    </div>
-
-    <div class="split">
-      <div class="card section" id="about">
-        <h2>About</h2>
-        <p>
-          Hi — I’m <strong>Amar Licina</strong>. I work with cybersecurity and I’m building TomorrowSecured to help people learn
-          security fundamentals in a clear, practical way.
-        </p>
-      </div>
-
-      <div class="card section">
-        <h2>Cybersecurity in 60 seconds</h2>
-        <ul>
-          <li><strong>Protect identities:</strong> strong passwords + MFA everywhere.</li>
-          <li><strong>Update systems:</strong> patching stops most common attacks.</li>
-          <li><strong>Watch for phishing:</strong> verify links, senders, and urgency.</li>
-          <li><strong>Backups matter:</strong> keep at least one offline/immutable copy.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card section" id="contact">
-      <h2>Contact</h2>
-      <p>Want to collaborate, suggest topics, or ask a question?</p>
-
-      <div class="contactRow">
-        <span class="contactChip">
-          <span class="icon">✉</span>
-          <a href="mailto:Amardommer@hotmail.com">Amardommer@hotmail.com</a>
-        </span>
-
-        <span class="contactChip">
-          <span class="icon">in</span>
-          <a href="https://www.linkedin.com/in/amar-licina-889aab207" target="_blank" rel="noreferrer">LinkedIn</a>
-        </span>
-      </div>
-    </div>
-
-    <footer>
-      <div>© <span id="y"></span> TomorrowSecured • tomorrowsecured.org</div>
-      <div class="footLinks">
-        <a href="#about">About</a>
-        <a href="#learn">Learn</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </footer>
-  </div>
+    </section>
+  </main>
 
   <script>
+    // Set backgrounds
+    document.getElementById("heroBg").style.backgroundImage = `url('${window.HERO_BG}')`;
+    document.getElementById("profileBg").style.backgroundImage = `url('${window.PROFILE_BG}')`;
+
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
