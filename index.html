@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TomorrowSecured</title>
+  <meta name="description" content="TomorrowSecured — education and intro to cybersecurity." />
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:0;line-height:1.6;background:#0b0f14;color:#e8eef7}
+    .wrap{max-width:900px;margin:0 auto;padding:48px 20px}
+    header{padding:28px 0 10px}
+    h1{font-size:42px;margin:0 0 10px}
+    p{opacity:.92}
+    .card{background:#121a24;border:1px solid #1f2a3a;border-radius:14px;padding:18px 18px;margin:14px 0}
+    a{color:#8bd5ff;text-decoration:none}
+    a:hover{text-decoration:underline}
+    footer{opacity:.7;margin-top:40px;font-size:14px}
+    .pill{display:inline-block;background:#182233;border:1px solid #26344a;border-radius:999px;padding:6px 12px;margin:6px 8px 0 0;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>TomorrowSecured</h1>
+      <p>Practical cybersecurity education — made simple.</p>
+      <span class="pill">Awareness</span>
+      <span class="pill">Basics</span>
+      <span class="pill">Hands-on learning</span>
+    </header>
+
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        Hi — I’m <strong>[Your Name]</strong>. I work with cybersecurity and I’m building TomorrowSecured to help people learn
+        security fundamentals in a clear, practical way.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Cybersecurity in 60 seconds</h2>
+      <ul>
+        <li><strong>Protect identities:</strong> strong passwords + MFA everywhere.</li>
+        <li><strong>Update systems:</strong> patching stops most attacks.</li>
+        <li><strong>Watch for phishing:</strong> verify links, senders, and urgency.</li>
+        <li><strong>Backups matter:</strong> keep at least one offline/immutable copy.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">yourprofile</a></p>
+    </div>
+
+    <footer>
+      © <span id="y"></span> TomorrowSecured • tomorrowsecured.org
+    </footer>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
