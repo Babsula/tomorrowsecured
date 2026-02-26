@@ -4,100 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomorrow Secured</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="styles.css">
+    [STYLES_CSS]
+      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Tomorrow Secured</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">Tomorrow Secured</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#why-us">Why Us?</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
     <section class="hero">
-        <div class="hero-content">
-            <h1>Secure Your Future Today</h1>
-            <p>Educating the next generation in cybersecurity.</p>
-            <button class="cta-btn">Explore Courses</button>
-            <button class="cta-btn">Contact Us</button>
+        <div class="container">
+            <h1>Secure Your Future with Tomorrow Secured</h1>
+            <p>Educational Cybersecurity Courses for Everyone</p>
+            <button class="cta explore">Explore Courses</button>
+            <button class="cta contact">Contact Us</button>
         </div>
     </section>
 
     <section id="about" class="about">
-        <div class="content-container">
+        <div class="container">
             <h2>About Tomorrow Secured</h2>
-            <p>Tomorrow Secured is a cybersecurity education charity project, dedicated to empowering the next generation of cybersecurity professionals.</p>
-            <p><strong>By: Amar Licina</strong></p>
+            <p>Tomorrow Secured is a charity project dedicated to providing top-tier cybersecurity education for all. By Amar Licina.</p>
         </div>
     </section>
 
     <section id="courses" class="courses">
-        <h2>Courses &amp; Tracks</h2>
-        <div class="card-container">
-            <div class="course-card">
-                <h3>Beginner</h3>
-                <p>A foundational course for those new to cybersecurity.</p>
-            </div>
-            <div class="course-card">
-                <h3>SOC</h3>
-                <p>Focused on Security Operations Center (SOC) practices and technologies.</p>
-            </div>
-            <div class="course-card">
-                <h3>Cloud</h3>
-                <p>Diving into cloud security best practices and tools.</p>
-            </div>
-            <div class="course-card">
-                <h3>DFIR</h3>
-                <p>Data Forensics &amp; Incident Response (DFIR) for advanced analysts.</p>
+        <div class="container">
+            <h2>Courses/Tracks</h2>
+            <div class="cards">
+                <article class="card beginner">
+                    <h3>Beginner</h3>
+                    <p>Starting with the basics, this course is perfect for beginners.</p>
+                </article>
+                <article class="card soc">
+                    <h3>SOC</h3>
+                    <p>This course focuses on Security Operations Center practices and management.</p>
+                </article>
+                <article class="card cloud">
+                    <h3>Cloud</h3>
+                    <p>A deep dive into the security of cloud environments, including best practices.</p>
+                </article>
+                <article class="card dfir">
+                    <h3>DFIR</h3>
+                    <p>Data Forensics and Incident Response - learning how to respond to cyber threats.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <section id="why-us" class="why-us">
-        <h2>Why Choose Tomorrow Secured?</h2>
-        <ul>
-            <li><strong>Educational Excellence</strong>: Our curriculum is crafted by industry experts.</li>
-            <li><strong>No Cost Barrier</strong>: All our courses are free, making cybersecurity education accessible to everyone.</li>
-            <li><strong>Sustainable Impact</strong>: Every contribution helps us grow and support more students.</li>
-        </ul>
+    <section id="why" class="why">
+        <div class="container">
+            <h2>Why Choose Tomorrow Secured?</h2>
+            <ul>
+                <li><strong>No Cost:</strong> All courses are free for everyone.</li>
+                <li><strong>Expertise:</strong> Taught by industry leaders and experienced professionals.</li>
+                <li><strong>Community:</strong> Join a community of learners and experts to grow together.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="testimonials" class="testimonials">
-        <h2>Testimonials</h2>
-        <div class="testimonial-card">
-            <p>"Great resources, very helpful for beginners!"</p>
-            <span>- Jane Doe, Student</span>
-        </div>
-        <div class="testimonial-card">
-            <p>"The platform is user-friendly and comprehensive."</p>
-            <span>- John Smith, Professional</span>
+        <div class="container">
+            <h2>Testimonials</h2>
+            <p>Placeholder testimonials here...</p>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </section>
-</main>
 
-<footer>
-    <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <script src="scripts.js"></script>
 </body>
 </html>
