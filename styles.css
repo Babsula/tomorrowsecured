@@ -1,211 +1,52 @@
-</head>
-<body>
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Tomorrow Secured</a>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#why">Why Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Secure Your Future with Tomorrow Secured</h1>
-            <p>Educational Cybersecurity Courses for Everyone</p>
-            <button class="cta explore">Explore Courses</button>
-            <button class="cta contact">Contact Us</button>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Tomorrow Secured</h2>
-            <p>Tomorrow Secured is a charity project dedicated to providing top-tier cybersecurity education for all. By Amar Licina.</p>
-        </div>
-    </section>
-
-    <section id="courses" class="courses">
-        <div class="container">
-            <h2>Courses/Tracks</h2>
-            <div class="cards">
-                <article class="card beginner">
-                    <h3>Beginner</h3>
-                    <p>Starting with the basics, this course is perfect for beginners.</p>
-                </article>
-                <article class="card soc">
-                    <h3>SOC</h3>
-                    <p>This course focuses on Security Operations Center practices and management.</p>
-                </article>
-                <article class="card cloud">
-                    <h3>Cloud</h3>
-                    <p>A deep dive into the security of cloud environments, including best practices.</p>
-                </article>
-                <article class="card dfir">
-                    <h3>DFIR</h3>
-                    <p>Data Forensics and Incident Response - learning how to respond to cyber threats.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section id="why" class="why">
-        <div class="container">
-            <h2>Why Choose Tomorrow Secured?</h2>
-            <ul>
-                <li><strong>No Cost:</strong> All courses are free for everyone.</li>
-                <li><strong>Expertise:</strong> Taught by industry leaders and experienced professionals.</li>
-                <li><strong>Community:</strong> Join a community of learners and experts to grow together.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <p>Placeholder testimonials here...</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"></textarea>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="scripts.js"></script>
-</body>
-</html>
-[/INDEX_HTML]
-
-[STYLES_CSS]
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
-body, input, textarea {
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-.navbar {
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: inherit;
-}
-
-.navbar ul {
-    list-style: none;
-}
-
-.navbar li a {
-    margin-left: 1rem;
-    text-decoration: none;
-    color: #909090;
-}
-
-.cta {
-    background-color: #0c73a4;
-    border: none;
-    padding: 0.5rem 1rem;
-    color: white;
-    cursor: pointer;
-    margin-right: 1rem;
-    font-size: 1rem;
-}
-
-.hero {
-    background-image: url('https://via.placeholder.com/1200x300');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    color: #fff;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 4rem;
-}
-
-.hero p {
-    font-size: 2rem;
-    margin-top: 1rem;
-}
-
-.about, .courses, .why, .testimonials, .contact, .footer {
-    background-color: #303030;
-}
-
-.about h2, .courses h2, .why h2, .testimonials h2, .contact h2, .footer p {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-top: 1rem;
-}
-
-.cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-bottom: 2rem;
+.bg-light {
+    background-color: #f8f9fa;
 }
 
 .card {
-    background-color: #3b3b3b;
-    padding: 1rem;
-    border-radius: 5px;
-    width: calc(25% - 1rem);
-    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card h3, .card p {
-    color: white;
-    margin-bottom: 0.5rem;
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: #1a1a1a !important;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.card-title,
+.card-text {
+    color: #212529 !important;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center !important;
 }
 
 footer {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
 }
