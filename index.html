@@ -3,95 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomorrow Secured - Cybersecurity Education Charity</title>
-    <link rel="stylesheet" href="./assets/styles.css">
-  <link rel="stylesheet" href="styles.css">
+    <title>Tomorrow Secured</title>
+    [STYLES_CSS]
+      <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <a href="#" class="logo">Tomorrow Secured</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#why-us">Why Us</a></li>
+        <nav aria-label="Site Navigation">
+            <ul class="navbar">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#courses">Courses/Tracks</a></li>
+                <li><a href="#why-us">Why Us?</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Secure the Future with Tomorrow Secured</h1>
-            <p>Educating for a safer digital world.</p>
-            <button class="cta-button" onclick="location.href='#courses'">Explore Courses</button>
-            <button class="cta-button" onclick="location.href='#contact'">Contact Us</button>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Tomorrow Secured</h1>
+                <p>Educating for a safer tomorrow.</p>
+                <button type="button">Explore Courses</button>
+                <button type="button">Contact Us</button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Tomorrow Secured</h2>
+                <p>Mission: To empower individuals and organizations with the knowledge to protect their digital future.</p>
+                <p>By Amar Licina, a dedicated cybersecurity advocate.</p>
+            </div>
+        </section>
+
+        <section id="courses" class="courses">
+            <div class="container">
+                <h2>Courses/Tracks</h2>
+                <div class="card-group">
+                    <a href="#" class="course-card">
+                        <h3>Beginner</h3>
+                    </a>
+                    <a href="#" class="course-card">
+                        <h3>SOC (Security Operations Center)</h3>
+                    </a>
+                    <a href="#" class="course-card">
+                        <h3>Cloud Security</h3>
+                    </a>
+                    <a href="#" class="course-card">
+                        <h3>DFIR (Digital Forensics and Incident Response)</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="why-us">
+            <div class="container">
+                <h2>Why Tomorrow Secured?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lacinia, dui vel blandit tincidunt, turpis ex interdum metus, in bibendum ante leo non nibh.</p>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Testimonials</h2>
+                <blockquote>Great courses with practical insights. - John Doe</blockquote>
+                <blockquote>Fully recommend! - Jane Smith</blockquote>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <form action="#" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
         </div>
-    </section>
-
-    <section id="about" class="content-section">
-        <h2>About Tomorrow Secured</h2>
-        <p>Tomorrow Secured is a non-profit organization dedicated to providing cybersecurity education and resources. We aim to empower individuals in Kenya with the knowledge needed to secure their digital lives and contribute to a safer online environment.</p>
-        <p>Founded by Amar Licina, our mission is to bridge the cybersecurity skills gap, particularly among underserved communities.</p>
-    </section>
-
-    <section id="courses" class="content-section">
-        <h2>Courses & Tracks</h2>
-        <div class="course-cards">
-            <div class="card beginner">
-                <h3>Beginner Track</h3>
-                <p>A foundational course for those new to cybersecurity.</p>
-            </div>
-            <div class="card soc">
-                <h3>SOC Track</h3>
-                <p>Cybersecurity Operations Center training for professionals.</p>
-            </div>
-            <div class="card cloud">
-                <h3>Cloud Security Track</h3>
-                <p>Advanced cloud security practices and compliance.</p>
-            </div>
-            <div class="card dfir">
-                <h3>DFIR Track</h3>
-                <p>Digital Forensics & Incident Response for experts.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="why-us" class="content-section">
-        <h2>Why Choose Tomorrow Secured?</h2>
-        <ul>
-            <li><strong>No Cost:</strong> All courses are free of charge to participants in Kenya.</li>
-            <li><strong>Dedicated Support:</strong> Personalized guidance and community forums.</li>
-            <li><strong>Promising Careers:</strong> Prepare for a rewarding career in cybersecurity.</li>
-        </ul>
-    </section>
-
-    <section id="testimonials" class="content-section">
-        <h2>Testimonials</h2>
-        <p>Coming soon...</p>
-    </section>
-
-    <section id="contact" class="content-section contact-form">
-        <h2>Contact Us</h2>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Disable form submission for frontend-only
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-        });
-    </script>
 </body>
 </html>
