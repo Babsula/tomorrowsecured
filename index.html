@@ -1,107 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TomorrowSecured</title>
-  <meta name="description" content="TomorrowSecured — education and intro to cybersecurity." />
-
-  <style>
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
-      margin: 0;
-      line-height: 1.6;
-      background: #0b0f14;
-      color: #e8eef7;
-    }
-    .wrap {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 20px;
-    }
-    header {
-      padding: 28px 0 10px;
-    }
-    h1 {
-      font-size: 42px;
-      margin: 0 0 10px;
-    }
-    p {
-      opacity: .92;
-    }
-    .card {
-      background: #121a24;
-      border: 1px solid #1f2a3a;
-      border-radius: 14px;
-      padding: 18px;
-      margin: 14px 0;
-    }
-    a {
-      color: #8bd5ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      opacity: .7;
-      margin-top: 40px;
-      font-size: 14px;
-    }
-    .pill {
-      display: inline-block;
-      background: #182233;
-      border: 1px solid #26344a;
-      border-radius: 999px;
-      padding: 6px 12px;
-      margin: 6px 8px 0 0;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomorrow Secured</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="wrap">
-    <header>
-      <h1>TomorrowSecured</h1>
-      <p>Practical cybersecurity education — made simple.</p>
-      <span class="pill">Awareness</span>
-      <span class="pill">Basics</span>
-      <span class="pill">Hands-on learning</span>
-    </header>
 
-    <div class="card">
-      <h2>About</h2>
-      <p>
-        Hi — I’m <strong>Amar</strong>. I work with cybersecurity and I’m building
-        TomorrowSecured to help people learn security fundamentals in a clear,
-        practical way.
-      </p>
-    </div>
+<header>
+    <nav class="navbar">
+        <div class="logo">Tomorrow Secured</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#why-us">Why Us?</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <div class="card">
-      <h2>Cybersecurity in 60 seconds</h2>
-      <ul>
-        <li><strong>Protect identities:</strong> strong passwords + MFA everywhere.</li>
-        <li><strong>Update systems:</strong> patching stops most attacks.</li>
-        <li><strong>Watch for phishing:</strong> verify links, senders, and urgency.</li>
-        <li><strong>Backups matter:</strong> keep at least one offline/immutable copy.</li>
-      </ul>
-    </div>
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Secure Your Future Today</h1>
+            <p>Educating the next generation in cybersecurity.</p>
+            <button class="cta-btn">Explore Courses</button>
+            <button class="cta-btn">Contact Us</button>
+        </div>
+    </section>
 
-    <div class="card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:amli@tomorrowsecured.org">amli@tomorrowsecured.org</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/amar-licina-889aab207" target="_blank">Amar Licina</a></p>
-    </div>
+    <section id="about" class="about">
+        <div class="content-container">
+            <h2>About Tomorrow Secured</h2>
+            <p>Tomorrow Secured is a cybersecurity education charity project, dedicated to empowering the next generation of cybersecurity professionals.</p>
+            <p><strong>By: Amar Licina</strong></p>
+        </div>
+    </section>
 
-    <footer>
-      © <span id="y"></span> TomorrowSecured • tomorrowsecured.org
-    </footer>
-  </div>
+    <section id="courses" class="courses">
+        <h2>Courses &amp; Tracks</h2>
+        <div class="card-container">
+            <div class="course-card">
+                <h3>Beginner</h3>
+                <p>A foundational course for those new to cybersecurity.</p>
+            </div>
+            <div class="course-card">
+                <h3>SOC</h3>
+                <p>Focused on Security Operations Center (SOC) practices and technologies.</p>
+            </div>
+            <div class="course-card">
+                <h3>Cloud</h3>
+                <p>Diving into cloud security best practices and tools.</p>
+            </div>
+            <div class="course-card">
+                <h3>DFIR</h3>
+                <p>Data Forensics &amp; Incident Response (DFIR) for advanced analysts.</p>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    <section id="why-us" class="why-us">
+        <h2>Why Choose Tomorrow Secured?</h2>
+        <ul>
+            <li><strong>Educational Excellence</strong>: Our curriculum is crafted by industry experts.</li>
+            <li><strong>No Cost Barrier</strong>: All our courses are free, making cybersecurity education accessible to everyone.</li>
+            <li><strong>Sustainable Impact</strong>: Every contribution helps us grow and support more students.</li>
+        </ul>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-card">
+            <p>"Great resources, very helpful for beginners!"</p>
+            <span>- Jane Doe, Student</span>
+        </div>
+        <div class="testimonial-card">
+            <p>"The platform is user-friendly and comprehensive."</p>
+            <span>- John Smith, Professional</span>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
