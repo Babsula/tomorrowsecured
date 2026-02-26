@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomorrow Secured</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <style>
+        body {
+            color: #F9FAFB;
+        }
+    </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary text-light p-3 fixed-top">
             <a class="navbar-brand" href="#">Tomorrow Secured</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link active" aria-current="page" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#tracks">Tracks</a>
+                        <a class="nav-link" href="#courses">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#why">Why Us</a>
+                        <a class="nav-link" href="#why-us">Why Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#testimonials">Testimonials</a>
@@ -35,184 +38,127 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="bg-light py-5 text-center">
-        <div class="container">
-            <h1>Securing the Future Through Cybersecurity Education</h1>
-            <p class="lead">Empowering the next generation with knowledge and opportunities.</p>
-            <a href="#tracks" class="btn btn-primary mt-4 px-4">Explore Learning Tracks</a>
-            <a href="#contact" class="btn btn-secondary mt-4 px-4">Get Involved</a>
+    <section id="hero" class="container-fluid p-5 text-center bg-primary text-light">
+        <h1>Tomorrow Secured</h1>
+        <p class="lead">Empowering the next generation in cybersecurity education.</p>
+        <a href="#courses" class="btn btn-lg btn-success mb-3">Explore Courses</a>
+        <a href="#contact" class="btn btn-lg btn-light mb-3">Contact Us</a>
+    </section>
+
+    <section id="about" class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-first order-md-last text-center">
+                <h2>About Tomorrow Secured</h2>
+                <p>Mission to provide free and accessible cybersecurity education for everyone. Led by Amar Licina.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="./assets/images/placeholder-about.jpg" alt="About Image" class="img-fluid mb-4">
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container text-center">
-            <h2>Our Mission: Empowering Knowledge and Opportunity</h2>
-            <p>Tomorrow Secured is dedicated to providing cybersecurity education for all, ensuring a secure future.</p>
-            <p><strong>By Amar Licina</strong></p>
-        </div>
-    </section>
-
-    <!-- Learning Tracks Section -->
-    <section id="tracks" class="py-5">
-        <div class="container text-center">
-            <h2>Explore Our Learning Tracks</h2>
-            <div class="row row-cols-1 row-cols-md-3 py-4 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Beginner</h5>
-                            <p class="card-text">An introduction to the basics of cybersecurity.</p>
-                        </div>
+    <section id="courses" class="container py-5 text-center bg-light rounded">
+        <h2>Our Courses</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./assets/images/course-beginner.jpg" class="card-img-top" alt="Beginner Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Beginner</h5>
+                        <p class="card-text">Get started with the basics of cybersecurity.</p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">SOC</h5>
-                            <p class="card-text">Learn about Security Operations Centers and their roles.</p>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./assets/images/course-soc.jpg" class="card-img-top" alt="SOC Course">
+                    <div class="card-body">
+                        <h5 class="card-title">SOC</h5>
+                        <p class="card-text">Learn about Security Operations Center (SOC) practices.</p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Cloud Security</h5>
-                            <p class="card-text">Secure your cloud environment with best practices.</p>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./assets/images/course-cloud.jpg" class="card-img-top" alt="Cloud Course">
+                    <div class="card-body">
+                        <h5 class="card-title">Cloud</h5>
+                        <p class="card-text">Explore cloud security and its unique challenges.</p>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">DFIR</h5>
-                            <p class="card-text">Digital Forensics and Incident Response for real-world scenarios.</p>
-                        </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="./assets/images/course-dfir.jpg" class="card-img-top" alt="DFIR Course">
+                    <div class="card-body">
+                        <h5 class="card-title">DFIR</h5>
+                        <p class="card-text">Understand Digital Forensics and Incident Response.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Us Section -->
-    <section id="why" class="py-5">
-        <div class="container text-center">
-            <h2>Why Choose Tomorrow Secured?</h2>
-            <div class="row row-cols-1 row-cols-md-3 py-4 g-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-star-fill text-success"></i>
-                            <h5 class="mt-2">Practical Skills</h5>
-                            <p>Gain real-world experience and skills applicable in today's tech landscape.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-briefcase-fill text-warning"></i>
-                            <h5 class="mt-2">Real-world Relevance</h5>
-                            <p>Learn from professionals and stay updated with industry trends.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-shield-fill-check text-success"></i>
-                            <h5 class="mt-2">Ethics and Integrity</h5>
-                            <p>Our curriculum emphasizes ethical considerations in cybersecurity.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="bi bi-hand-holding-heart-fill text-warning"></i>
-                            <h5 class="mt-2">Empowerment</h5>
-                            <p>Empower yourself and your community with essential cybersecurity knowledge.</p>
-                        </div>
-                    </div>
-                </div>
+    <section id="why-us" class="container py-5 text-center bg-primary text-light">
+        <h2>Why Choose Tomorrow Secured?</h2>
+        <ul class="list-unstyled mb-4 d-flex justify-content-between align-items-center flex-wrap">
+            <li><img src="./assets/images/icon-accessibility.png" alt="Accessibility Icon">Free and accessible education</li>
+            <li><img src="./assets/images/icon-experience.png" alt="Experience Icon">Led by seasoned professionals</li>
+            <li><img src="./assets/images/icon-community.png" alt="Community Icon">Active community support</li>
+        </ul>
+    </section>
+
+    <section id="testimonials" class="container py-5 text-center">
+        <h2>What Our Students Say</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <blockquote class="blockquote rounded">
+                    <p>This course changed my life! I'm now more confident in my cybersecurity skills.</p>
+                    <footer class="blockquote-footer">John Doe, Student</footer>
+                </blockquote>
+            </div>
+            <div class="col">
+                <blockquote class="blockquote rounded">
+                    <p>The instructors are knowledgeable and passionate. Highly recommend!</p>
+                    <footer class="blockquote-footer">Jane Smith, Graduate</footer>
+                </blockquote>
+            </div>
+            <div class="col">
+                <blockquote class="blockquote rounded">
+                    <p>The hands-on projects really helped me apply what I learned.</p>
+                    <footer class="blockquote-footer">Alex Johnson, Participant</footer>
+                </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5">
-        <div class="container text-center">
-            <h2>What Our Learners Say</h2>
-            <div class="row row-cols-1 row-cols-md-3 py-4 g-4">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <blockquote class="blockquote mb-0">
-                                <p>"This course was incredibly valuable. I feel more prepared to tackle real-world cybersecurity challenges."</p>
-                                <footer class="blockquote-footer">- Jane Doe, Student</footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <blockquote class="blockquote mb-0">
-                                <p>"The support and resources provided by Tomorrow Secured made a significant difference in my journey."</p>
-                                <footer class="blockquote-footer">- John Smith, Student</footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body text-center">
-                            <blockquote class="blockquote mb-0">
-                                <p>"I highly recommend this program for anyone serious about cybersecurity. The content is top-notch."</p>
-                                <footer class="blockquote-footer">- Emily Johnson, Student</footer>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
+    <section id="contact" class="container py-5 text-center bg-light rounded">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post" role="form" class="text-left">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" required class="form-control">
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" id="email" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea name="message" id="message" rows="4" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container text-center">
-            <h2>Get in Touch</h2>
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="name@example.com">
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary mt-4 px-4">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="py-5 bg-dark text-white">
-        <div class="container text-center">
-            <p>Empowering the next generation of cybersecurity professionals.</p>
-            <p><strong>By Amar Licina</strong></p>
-        </div>
+    <footer class="container py-5 text-center bg-primary text-light">
+        <p>&copy; 2023 Tomorrow Secured. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
