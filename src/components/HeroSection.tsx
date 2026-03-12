@@ -1,7 +1,35 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import { ChevronRight, Terminal } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const HeroSection = () => {
+  const [glitch, setGlitch] = useState(false);
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    let flickerInterval: ReturnType<typeof setInterval>;
+    const handleScroll = () => {
+      setGlitch(true);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => setGlitch(false), 400);
+    };
+    // Periodic micro-glitches even when idle
+    flickerInterval = setInterval(() => {
+      setGlitch(true);
+      setTimeout(() => setGlitch(false), 150);
+    }, 3000);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
+      clearInterval(flickerInterval);
+    };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -14,8 +42,8 @@ const HeroSection = () => {
           <Terminal className="h-4 w-4 text-primary" />
           <span className="font-mono">Cybersecurity Education for the Next Generation</span>
         </div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6">
-          Defend the <span className="gradient-text">Digital Future</span>
+        <h1 className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6 glitch-title ${glitch ? "glitching" : ""}`} data-text="Tomorrow Secured">
+          Tomorrow <span className="gradient-text">Secured</span>
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
           Tomorrow Secured equips learners with hands-on cybersecurity skills — from ethical hacking to threat intelligence — through real-world labs and expert-led programs.
