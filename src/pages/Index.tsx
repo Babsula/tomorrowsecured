@@ -10,11 +10,13 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import AuthorSection from "@/components/AuthorSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import CharacterEasterEgg from "@/components/CharacterEasterEgg";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
     <ScrollBackground />
     <ClickParticles />
+    <CharacterEasterEgg />
     <Navbar />
     <ScrollFadeIn>
       <HeroSection />
